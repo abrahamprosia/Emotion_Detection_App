@@ -1,4 +1,4 @@
-a﻿bsl-py==2.1.0
+﻿bsl-py==2.1.0
 astunparse==1.6.3
 blinker==1.9.0
 certifi==2024.12.14
