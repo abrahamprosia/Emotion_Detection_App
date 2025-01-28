@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emotion Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #bfbba3;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #fad105;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 80vh;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .upload-container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 90%;
+            max-width: 500px;
+        }
+
+        .upload-container h2 {
+            margin-bottom: 1rem;
+            color: #fad520;
+        }
+
+        .file-input {
+            margin: 1rem 0;
+        }
+
+        input[type="file"] {
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .btn-submit {
+            background-color:#fcdb3a;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s;
+        }
+
+        .btn-submit:hover {
+            background-color: #fadc05;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: none;
+            border-top: 1px solid #ddd;
+            margin-top: 20px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 0.9rem;
+        }
+
+        .drawer {
+            position: fixed;
+            top: 0;
+            right: -320px;
+            width: 300px;
+            height: 100%;
+            background-color: white;
+            box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+            padding: 1rem;
+            overflow-y: auto;
+            transition: right 0.3s ease;
+        }
+
+        .drawer.open {
+            right: 0;
+        }
+
+        .drawer h3 {
+            color: #1c1b01;
+            margin-bottom: 1rem;
+        }
+
+        .drawer p {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #141413;
+        }
+
+        .drawer-toggle {
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            background-color: #fad105;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+            font-size: 1rem;
+        }
+
+        .drawer-toggle:hover {
+            background-color: #ffd903;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        Classification App
+    </header>
+    <main>
+        <div class="upload-container">
+            <h2>Emotion Classification</h2>
+            <form action="/predict" method="POST" enctype="multipart/form-data">
+                <div class="file-input">
+                    <input type="file" name="image" accept="image/*" required>
+                </div>
+                <button class="btn-submit" type="submit">Predict</button>
+            </form>
+        </div>
+    </main>
+    <button class="drawer-toggle" onclick="toggleDrawer()">☰ Info</button>
+    <div class="drawer" id="drawer">
+        <h3>Notice/Disclaimer</h3>
+        <p>This Web App is a prototype for detecting emotions from images. Predictions should not be used for critical decisions.</p>
+        <h3>Development Notice</h3>
+        <p>This project is currently under development. Features and performance may change as improvements are made.</p>
+    </div>
+    <footer>
+        <p>&copy; Image Classification Project of Abraham Prosia. All Rights Reserved (2025).</p>
+    </footer>
+
+    <script>
+        function toggleDrawer() {
+            const drawer = document.getElementById('drawer');
+            drawer.classList.toggle('open');
+        }
+    </script>
+</body>
+</html>

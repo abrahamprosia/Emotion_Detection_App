@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+</head>
+<body>
+    <h1>Prediction Result</h1>
+    {% if error %}
+        <p style="color: red;">Error: {{ error }}</p>
+    {% else %}
+        <p><strong>Predicted Class:</strong> {{ predicted_class }}</p>
+        <p><strong>Probability:</strong> {{ probability }}%</p>
+    {% endif %}
+    <a href="/">Go Back</a>
+</body>
+</html>
